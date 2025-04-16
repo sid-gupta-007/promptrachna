@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dororo Storybook</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #121212;
+      color: white;
+      cursor: url('sword-cursor.png'), auto;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #1f1f1f;
+      padding: 10px 20px;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    #mode-toggle {
+      background: none;
+      border: none;
+      color: yellow;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .chapter {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ff4b4b;
+      text-shadow: 0 0 10px red, 0 0 20px orange;
+    }
+
+    .image-container {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .story-img {
+      max-width: 100%;
+      width: 300px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+    }
+
+    .page {
+      margin-bottom: 30px;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      transition: all 0.3s ease;
+    }
+
+    .page:hover p {
+      color: #ffb347;
+      text-shadow: 0 0 5px #ffa500, 0 0 10px #ff8c00;
+      transform: scale(1.01);
+    }
+
+    .navigation-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: 2px solid yellow;
+      color: yellow;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      margin: 5px;
+    }
+
+    button[onclick] {
+      display: block;
+      margin: 20px auto;
+      background-color: #ff4b4b;
+      color: white;
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button[onclick]:hover {
+      background-color: #ff1c1c;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      .nav-button {
+        font-size: 16px;
+        padding: 8px 14px;
+      }
+
+      .story-img {
+        width: 100%;
+      }
+
+      .page {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="index.html">Chapter 1</a></li>
+      <li><a href="chapter2.html">Chapter 2</a></li>
+      <li><a href="chapter3.html">Chapter 3</a></li>
+      <li><a href="chapter4.html">Chapter 4</a></li>
+    </ul>
+    <button id="mode-toggle">🌙</button>
+  </nav>
+
+  <main>
+    <section class="chapter">
+      <h1>Chapter 4: Redemption and Rebirth</h1>
+
+      <!-- Image Section -->
+      <div class="image-container">
+        <img src="coverpage.jpg" alt="Cover Page" class="story-img" id="current-image" />
+      </div>
+
+      <!-- Arrow Buttons -->
+      <div class="navigation-buttons">
+        <button id="prev-button" class="nav-button">←</button>
+        <button id="next-button" class="nav-button">→</button>
+      </div>
+
+      <div class="page">
+        <img src=".jpg" alt="Daigo's Deal with Demons" class="story-img">
+        <p>Hyakkimaru finally returned to confront Daigo — his father and the man who sacrificed him. The final battle was not just of blades, but of fate.</p>
+      </div>
+
+      <div class="page">
+        <img src=".jpg" alt="Daigo's Deal with Demons" class="story-img">
+        <p>In the heat of vengeance, Hyakkimaru faced a choice: to become the monster he hunted or rise above hatred. He chose mercy.</p>
+      </p>
+      </div>
+
+      <div class="page">
+        <img src=".jpg" alt="Daigo's Deal with Demons" class="story-img">
+        <p>With his body restored and soul awakened, Hyakkimaru set out once more — not for revenge, but for a future. Dororo walked beside him, their paths now one.</p>
+      </div>
+
+      <button onclick="nextChapter('chapter4.html')">Next Chapter →</button>
+    </section>
+  </main>
+
+  <canvas id="cursorTrail"></canvas>
+  <script src="script.js"></script>
+</body>
+</html>
